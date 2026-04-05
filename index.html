@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Complaint Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>🧠 Smart Complaint Analyzer</h1>
+
+    <form method="POST">
+        <textarea name="complaint" placeholder="Enter your complaint..." required></textarea>
+        <br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <p><strong>Category:</strong> {{ result.category }}</p>
+        <p><strong>Urgency:</strong> {{ result.urgency }}</p>
+        <p><strong>Sentiment:</strong> {{ result.sentiment }}</p>
+    </div>
+    {% endif %}
+    <br><br>
+<a href="/history">View Complaint History</a>
+<p><strong>Tracking ID:</strong> {{ result.tracking_id }}</p>
+</body>
+</html>
